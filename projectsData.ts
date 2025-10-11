@@ -11,6 +11,7 @@ export const projects: Project[] = [
       id: 'puente-romano',
       titleKey: 'projectPuenteRomano',
       images: [
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FPuente%20Romano%2FAedificia%20Nobile%20143.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FPuente%20Romano%2FAedificia%20Nobile%207.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FPuente%20Romano%2FAedificia%20Nobile%208.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FPuente%20Romano%2FAedificia%20Nobile%2013.jpg?alt=media',
@@ -24,7 +25,6 @@ export const projects: Project[] = [
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FPuente%20Romano%2FAedificia%20Nobile%2021.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FPuente%20Romano%2FAedificia%20Nobile%2022.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FPuente%20Romano%2FAedificia%20Nobile%2023.jpg?alt=media',
-        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FPuente%20Romano%2FAedificia%20Nobile%20143.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FPuente%20Romano%2FAedificia%20Nobile%20144.jpg?alt=media',
       ]
     },

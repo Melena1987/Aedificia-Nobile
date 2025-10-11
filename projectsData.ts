@@ -77,10 +77,11 @@ export const projects: Project[] = [
       id: 'bahia-alcantara', 
       titleKey: 'projectBahiaAlcantara', 
       images: [
-        'https://i.imgur.com/gK9q0Ff.jpeg',
-        'https://i.imgur.com/N8a1g4s.jpeg',
-        'https://i.imgur.com/835ySKt.jpeg',
-        'https://i.imgur.com/c6w3d3u.jpeg',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2056.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2057.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2058.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2059.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2060.jpg?alt=media',
       ] 
     },
     { 
@@ -97,8 +98,14 @@ export const projects: Project[] = [
       id: 'el-higueron', 
       titleKey: 'projectElHigueron', 
       images: [
-        'https://i.imgur.com/N8a1g4s.jpeg',
-        'https://i.imgur.com/yGpdG21.jpeg',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2084.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2085.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2086.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2087.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2088.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2089.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2090.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2091.jpg?alt=media',
       ] 
     },
     { 

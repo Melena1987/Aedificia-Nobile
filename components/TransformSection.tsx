@@ -10,11 +10,13 @@ const TransformSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 flex flex-col md:flex-row items-center gap-12 md:gap-16 max-w-6xl">
         {/* Image Column */}
         <ScrollRevealSection animation="fade-in-left" className="w-full md:w-1/2">
-          <img 
-            src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2Fsegunda%20franja.jpg?alt=media" 
-            alt="Bright, modern kitchen with white cabinets and a dark island" 
-            className="w-full h-auto object-cover rounded-lg shadow-2xl"
-            loading="lazy"
+          <div
+            className="w-full h-96 md:h-[500px] bg-cover bg-center bg-fixed rounded-lg shadow-2xl"
+            style={{
+              backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2Fsegunda%20franja.jpg?alt=media')"
+            }}
+            role="img"
+            aria-label="Bright, modern kitchen with white cabinets and a dark island"
           />
         </ScrollRevealSection>
         {/* Text Column */}

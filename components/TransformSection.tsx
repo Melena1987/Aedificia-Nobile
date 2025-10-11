@@ -11,7 +11,7 @@ const TransformSection: React.FC = () => {
         {/* Image Column */}
         <ScrollRevealSection animation="fade-in-left" className="w-full md:w-1/2">
           <img 
-            src="https://picsum.photos/seed/kitchen/1200/800" 
+            src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2Fsegunda%20franja.jpg?alt=media" 
             alt="Bright, modern kitchen with white cabinets and a dark island" 
             className="w-full h-auto object-cover rounded-lg shadow-2xl"
             loading="lazy"

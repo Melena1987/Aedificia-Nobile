@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
 
   return (
     <header className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${isOpaque ? 'bg-white shadow-md text-brand-dark' : 'bg-transparent text-white'}`}>
-      <div className="w-full max-w-screen-2xl mx-auto flex justify-between items-center py-2 px-8 sm:px-12 lg:px-24">
+      <div className="w-full max-w-screen-2xl mx-auto flex justify-between items-center px-8 sm:px-12 lg:px-24">
         <a href="#home" onClick={(e) => handleNavClick(e, 'home', 'home')} className="flex-shrink-0">
           <img 
             src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 

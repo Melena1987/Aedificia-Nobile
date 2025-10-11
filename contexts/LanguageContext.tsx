@@ -51,7 +51,7 @@ const translations = {
     testimonialsTitle: 'Satisfied Clients',
     testimonial1Quote: 'Thanks to Aedificia Nobile, they transformed my home. Their team was professional, punctual, and the results exceeded all my expectations. Highly recommended!',
     testimonial1Name: 'Juan Pérez',
-    testimonial2Quote: "I couldn't be happier with my new kitchen. From the design to the finishes, everything was perfect. Aedificia Nobile brought my dream to life.",
+    testimonial2Quote: "I couldn\'t be happier with my new kitchen. From the design to the finishes, everything was perfect. Aedificia Nobile brought my dream to life.",
     testimonial2Name: 'María Gómez',
     testimonial3Quote: 'My bathroom renovation turned out spectacular. Flawless work, completed on time and attention to every detail. I will definitely hire them again.',
     testimonial3Name: 'Carlos Rodríguez',
@@ -244,7 +244,7 @@ interface LanguageContextType {
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('es');
+  const [language, setLanguage] = useState<Language>('en');
 
   const t = (key: TranslationKey): string => {
     return translations[language][key] || translations.en[key];

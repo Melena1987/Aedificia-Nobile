@@ -74,7 +74,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate }) => {
           <img 
             src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 
             alt="Aedificia Nobile Logo" 
-            className={`h-12 lg:h-14 transition-all duration-300 ${!isScrolled ? 'brightness-0 invert' : ''}`}
+            className={`h-24 lg:h-28 transition-all duration-300 ${!isScrolled ? 'brightness-0 invert' : ''}`}
           />
         </a>
         

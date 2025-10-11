@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
           <img 
             src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 
             alt="Aedificia Nobile Logo"
-            className="h-14"
+            className="h-28"
           />
         </div>
         

@@ -104,8 +104,8 @@ export const projects: Project[] = [
       id: 'el-higueron', 
       titleKey: 'projectElHigueron', 
       images: [
-        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2084.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2085.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2084.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2086.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2087.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fel%20higueron%2FAedificia%20Nobile%2088.jpg?alt=media',
@@ -137,6 +137,7 @@ export const projects: Project[] = [
       id: 'piedra-blanca', 
       titleKey: 'projectPiedraBlanca', 
       images: [
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpiedra%20blanca%2FAedificia%20Nobile%20147.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpiedra%20blanca%2FAedificia%20Nobile%2024.JPG?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpiedra%20blanca%2FAedificia%20Nobile%2025.JPG?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpiedra%20blanca%2FAedificia%20Nobile%2026.JPG?alt=media',
@@ -172,7 +173,6 @@ export const projects: Project[] = [
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpiedra%20blanca%2FAedificia%20Nobile%20139.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpiedra%20blanca%2FAedificia%20Nobile%20145.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpiedra%20blanca%2FAedificia%20Nobile%20146.jpg?alt=media',
-        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpiedra%20blanca%2FAedificia%20Nobile%20147.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpiedra%20blanca%2FAedificia%20Nobile%20148.jpg?alt=media',
       ] 
     },
@@ -180,6 +180,7 @@ export const projects: Project[] = [
       id: 'piscina-la-resina', 
       titleKey: 'projectPiscinaLaResina', 
       images: [
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%20124.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%201.JPG?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%20113.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%20114.jpg?alt=media',
@@ -190,7 +191,6 @@ export const projects: Project[] = [
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%20121.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%20122.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%20123.jpg?alt=media',
-        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%20124.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%20125.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%20126.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fpool%20la%20resina%2FAedificia%20Nobile%20127.jpg?alt=media',
@@ -202,10 +202,10 @@ export const projects: Project[] = [
       id: 'torre-real', 
       titleKey: 'projectTorreReal', 
       images: [
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Ftorre%20real%2FAedificia%20Nobile%2076.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Ftorre%20real%2FAedificia%20Nobile%2073.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Ftorre%20real%2FAedificia%20Nobile%2074.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Ftorre%20real%2FAedificia%20Nobile%2075.jpg?alt=media',
-        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Ftorre%20real%2FAedificia%20Nobile%2076.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Ftorre%20real%2FAedificia%20Nobile%2077.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Ftorre%20real%2FAedificia%20Nobile%2078.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Ftorre%20real%2FAedificia%20Nobile%2079.jpg?alt=media',

@@ -33,7 +33,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ onNavigateToProjects }) => 
     <section 
       id="projects"
       className="bg-cover bg-center bg-fixed py-20 lg:py-32"
-      style={{ backgroundImage: "url('https://picsum.photos/seed/testimonialbg/1920/1080')" }}
+      style={{ backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2Ffondo%20clientes%20satisfechos.jpg?alt=media')" }}
     >
       <div className="absolute inset-0 bg-white bg-opacity-80"></div>
       <div className="container mx-auto px-4 sm:px-8 lg:px-16 relative z-1 text-center">

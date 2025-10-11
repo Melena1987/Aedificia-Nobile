@@ -67,6 +67,7 @@ const translations = {
     projectMarbellaCountryClub: 'Marbella Country Club',
     projectPiedraBlanca: 'Piedra Blanca',
     projectPiscinaLaResina: 'La Resina Pool',
+    projectPuenteRomano: 'Puente Romano',
     projectTorreReal: 'Torre Real',
 
     // Contact Section
@@ -151,6 +152,7 @@ const translations = {
     projectMarbellaCountryClub: 'Club de campo de Marbella',
     projectPiedraBlanca: 'Piedra Blanca',
     projectPiscinaLaResina: 'Piscina La Resina',
+    projectPuenteRomano: 'Puente Romano',
     projectTorreReal: 'Torre Real',
 
     // Contact Section

@@ -21,14 +21,14 @@ const SpainFlag: React.FC = () => (
 );
 
 interface HeaderProps {
-  onNavigate: (view: View, callback?: () => void) => void;
+  onNavigate: (path: string, sectionId?: string) => void;
   currentView: View;
   isServicePage: boolean;
 }
 
 interface NavLink {
   label: string;
-  view: View;
+  path: string;
   sectionId?: string;
 }
 
@@ -61,23 +61,17 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
     };
   }, []);
 
-  const handleNavClick = (e: React.MouseEvent, view: View, sectionId?: string) => {
+  const handleNavClick = (e: React.MouseEvent, path: string, sectionId?: string) => {
     e.preventDefault();
-    if (sectionId) {
-      onNavigate(view, () => {
-        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
-      });
-    } else {
-      onNavigate(view);
-    }
+    onNavigate(path, sectionId);
   };
 
   const navLinks: NavLink[] = [
-    { label: t('navHome'), view: 'home', sectionId: 'home' },
-    { label: t('navAbout'), view: 'home', sectionId: 'about' },
-    { label: t('navServices'), view: 'home', sectionId: 'services' },
-    { label: t('navProjects'), view: 'projects' },
-    { label: t('navContact'), view: 'home', sectionId: 'contact' },
+    { label: t('navHome'), path: '/', sectionId: 'home' },
+    { label: t('navAbout'), path: '/', sectionId: 'about' },
+    { label: t('navServices'), path: '/', sectionId: 'services' },
+    { label: t('navProjects'), path: '/works' },
+    { label: t('navContact'), path: '/', sectionId: 'contact' },
   ];
 
   const isTransparentInitially = currentView === 'home' && !isServicePage;
@@ -86,7 +80,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
   return (
     <header className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${isOpaque ? 'bg-white shadow-md text-brand-dark' : 'bg-transparent text-white'} ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="w-full max-w-screen-2xl mx-auto flex justify-between items-center px-8 sm:px-12 lg:px-24">
-        <a href="#home" onClick={(e) => handleNavClick(e, 'home', 'home')} className="flex-shrink-0">
+        <a href="/" onClick={(e) => handleNavClick(e, '/', 'home')} className="flex-shrink-0">
           <img 
             src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 
             alt="Aedificia Nobile Logo" 
@@ -99,8 +93,8 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
             {navLinks.map(link => (
               <a 
                 key={link.label} 
-                href={link.view === 'projects' ? '#works' : `#${link.sectionId || 'home'}`} 
-                onClick={(e) => handleNavClick(e, link.view, link.sectionId)} 
+                href={link.path} 
+                onClick={(e) => handleNavClick(e, link.path, link.sectionId)} 
                 className="font-semibold text-sm lg:text-base hover:text-brand-gold transition-colors whitespace-nowrap"
               >
                 {link.label}

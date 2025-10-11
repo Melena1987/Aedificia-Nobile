@@ -18,52 +18,37 @@ import CookieBanner from './components/CookieBanner';
 export type View = 'home' | 'projects' | 'privacy';
 
 const App: React.FC = () => {
-  const [currentView, setCurrentView] = useState<View>('home');
+  const [currentPath, setCurrentPath] = useState(window.location.pathname);
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
 
   useEffect(() => {
-    const handleHashChange = () => {
-      const hash = window.location.hash;
-      if (hash === '#works') {
-        setCurrentView('projects');
-      } else if (hash === '#privacy') {
-        setCurrentView('privacy');
-      } else {
-        setCurrentView('home');
-      }
-      setSelectedServiceId(null); // Close service page on view change
-      window.scrollTo(0, 0);
+    const handleLocationChange = () => {
+      setCurrentPath(window.location.pathname);
+      setSelectedServiceId(null);
     };
 
-    window.addEventListener('hashchange', handleHashChange);
-    handleHashChange(); // Set initial view based on hash
+    window.addEventListener('popstate', handleLocationChange);
+    
+    // Set initial state
+    handleLocationChange();
 
-    return () => window.removeEventListener('hashchange', handleHashChange);
+    return () => window.removeEventListener('popstate', handleLocationChange);
   }, []);
 
-  const handleNavigate = (view: View, callback?: () => void) => {
-    let targetHash = '#home';
-    if (view === 'projects') targetHash = '#works';
-    if (view === 'privacy') targetHash = '#privacy';
-    
-    const currentHash = window.location.hash || '#home';
+  const handleNavigate = (path: string, sectionId?: string) => {
+    const isOnSamePage = window.location.pathname === path || (path === '/' && window.location.pathname === '');
 
-    // If we are navigating to a section on the current page, just scroll
-    if (currentHash === targetHash) {
-      if (callback) {
-        callback();
-      }
-      return;
+    if (!isOnSamePage) {
+      window.history.pushState({}, '', path);
+      setCurrentPath(path);
+      setSelectedServiceId(null);
+      window.scrollTo(0, 0);
     }
-
-    // If navigating to a different page, change the hash.
-    // The hashchange listener will handle the view update and scroll to top.
-    window.location.hash = targetHash;
-
-    // If there's a callback (for scrolling to a section), execute it after a delay
-    // to allow the new page component to render.
-    if (callback) {
-      setTimeout(callback, 150);
+    
+    if (sectionId) {
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }, isOnSamePage ? 0 : 150);
     }
   };
 
@@ -78,6 +63,10 @@ const App: React.FC = () => {
   };
 
   const selectedService = services.find(s => s.id === selectedServiceId);
+
+  let currentView: View = 'home';
+  if (currentPath === '/works') currentView = 'projects';
+  else if (currentPath === '/privacy') currentView = 'privacy';
 
   const renderContent = () => {
     if (selectedService) {
@@ -101,7 +90,7 @@ const App: React.FC = () => {
           <ServicesSection onServiceSelect={handleSelectService} />
         </ScrollRevealSection>
         <ScrollRevealSection>
-          <Testimonials onNavigateToProjects={() => handleNavigate('projects')} />
+          <Testimonials onNavigateToProjects={() => handleNavigate('/works')} />
         </ScrollRevealSection>
       </>
     );
@@ -121,7 +110,7 @@ const App: React.FC = () => {
             <ContactSection />
           </ScrollRevealSection>
         </main>
-        <Footer />
+        <Footer onNavigate={handleNavigate} />
         <CookieBanner />
       </div>
     </LanguageProvider>

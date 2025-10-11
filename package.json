@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "react-dom": "18.3.1",
-    "react": "18.3.1"
+    "react": "18.3.1",
+    "firebase/app": "latest",
+    "firebase": "^12.4.0"
   },
   "devDependencies": {
     "@types/node": "^22.14.0",

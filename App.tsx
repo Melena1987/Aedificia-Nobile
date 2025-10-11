@@ -12,8 +12,10 @@ import ScrollRevealSection from './components/ScrollRevealSection';
 import ServicePage from './components/ServicePage';
 import { services } from './servicesData';
 import ProjectsPage from './components/ProjectsPage';
+import PrivacyPolicyPage from './components/PrivacyPolicyPage';
+import CookieBanner from './components/CookieBanner';
 
-export type View = 'home' | 'projects';
+export type View = 'home' | 'projects' | 'privacy';
 
 const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('home');
@@ -24,6 +26,8 @@ const App: React.FC = () => {
       const hash = window.location.hash;
       if (hash === '#works') {
         setCurrentView('projects');
+      } else if (hash === '#privacy') {
+        setCurrentView('privacy');
       } else {
         setCurrentView('home');
       }
@@ -38,7 +42,10 @@ const App: React.FC = () => {
   }, []);
 
   const handleNavigate = (view: View, callback?: () => void) => {
-    const targetHash = view === 'projects' ? '#works' : '#home';
+    let targetHash = '#home';
+    if (view === 'projects') targetHash = '#works';
+    if (view === 'privacy') targetHash = '#privacy';
+    
     const currentHash = window.location.hash || '#home';
 
     // If we are navigating to a section on the current page, just scroll
@@ -79,6 +86,9 @@ const App: React.FC = () => {
     if (currentView === 'projects') {
       return <ProjectsPage />;
     }
+    if (currentView === 'privacy') {
+      return <PrivacyPolicyPage />;
+    }
     // Home view
     return (
       <>
@@ -112,6 +122,7 @@ const App: React.FC = () => {
           </ScrollRevealSection>
         </main>
         <Footer />
+        <CookieBanner />
       </div>
     </LanguageProvider>
   );

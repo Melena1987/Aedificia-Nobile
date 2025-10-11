@@ -17,7 +17,7 @@ const Footer: React.FC = () => {
 
         {/* Middle Item: Info. Reordered to be first on mobile stack. */}
         <div className="text-sm text-gray-700 order-first md:order-none">
-          <a href="#" className="hover:text-brand-gold">{t('privacyPolicy')}</a>
+          <a href="#privacy" className="hover:text-brand-gold">{t('privacyPolicy')}</a>
           <p className="mt-2">&copy; 2025 Aedificia Nobile</p>
         </div>
 

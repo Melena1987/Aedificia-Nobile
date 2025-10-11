@@ -85,7 +85,36 @@ const translations = {
 
     // Footer
     contactUsButton: 'Contact us',
-    privacyPolicy: 'Privacy policy'
+    privacyPolicy: 'Privacy policy',
+
+    // Cookie Banner
+    cookieBannerText: 'We use cookies to enhance your browsing experience. By continuing to use our site, you agree to our use of cookies.',
+    cookieAccept: 'Accept',
+
+    // Privacy Policy
+    privacyPolicyTitle: 'Privacy Policy',
+    privacyPolicyLastUpdated: 'Last updated: August 1, 2025',
+    privacyPolicyIntro: "Aedificia Nobile ('we', 'us', or 'our') is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.",
+    privacyPolicyDataControllerTitle: 'Data Controller',
+    privacyPolicyDataControllerText: 'The data controller responsible for your personal data is Aedificia Nobile. Contact details:',
+    privacyPolicyDataControllerAddress: 'Address: San Pedro de Alcántara, Málaga, España',
+    privacyPolicyDataControllerEmail: 'Email: aedificianobile@yahoo.com',
+    privacyPolicyDataControllerPhone: 'Phone: +34610926670',
+    privacyPolicyDataCollectionTitle: 'Information We Collect',
+    privacyPolicyDataCollectionText: 'We collect information that you voluntarily provide to us through the contact form on our website. This personal data includes: Name and Surname, Email Address, Phone Number, Address, Subject, and the content of your message.',
+    privacyPolicyDataUsageTitle: 'How We Use Your Information',
+    privacyPolicyDataUsageText: 'We use the information collected via our contact form solely for the following purposes:',
+    privacyPolicyDataUsagePoint1: 'To respond to your inquiries and provide you with the information you have requested.',
+    privacyPolicyDataUsagePoint2: 'To prepare and send quotes for our services.',
+    privacyPolicyDataUsagePoint3: 'To communicate with you regarding your project or potential project.',
+    privacyPolicyDataSharingTitle: 'Disclosure of Your Information',
+    privacyPolicyDataSharingText: 'We do not sell, trade, or otherwise transfer your personally identifiable information to outside parties. Your data is used exclusively for communication between you and Aedificia Nobile.',
+    privacyPolicyUserRightsTitle: 'Your Data Protection Rights',
+    privacyPolicyUserRightsText: 'You have the right to access, rectify, or erase your personal data, as well as other rights recognized by law. You can exercise these rights by sending a written request to our email address.',
+    privacyPolicyCookiesTitle: 'Cookies Policy',
+    privacyPolicyCookiesText: 'Our website uses essential cookies to improve your browsing experience and ensure the basic functionalities of the site. A cookie is a small text file stored in your browser. By using our website, you consent to the use of these cookies.',
+    privacyPolicyContactTitle: 'Contact Us',
+    privacyPolicyContactText: 'If you have any questions or comments about this Privacy Policy, please contact us at:'
   },
   es: {
     // Header
@@ -170,7 +199,36 @@ const translations = {
 
     // Footer
     contactUsButton: 'Contáctanos',
-    privacyPolicy: 'Política de privacidad'
+    privacyPolicy: 'Política de privacidad',
+
+    // Cookie Banner
+    cookieBannerText: 'Utilizamos cookies para mejorar su experiencia de navegación. Al continuar utilizando nuestro sitio, acepta nuestro uso de cookies.',
+    cookieAccept: 'Aceptar',
+
+    // Privacy Policy
+    privacyPolicyTitle: 'Política de Privacidad',
+    privacyPolicyLastUpdated: 'Última actualización: 1 de agosto de 2025',
+    privacyPolicyIntro: "Aedificia Nobile ('nosotros' o 'nuestro') se compromete a proteger su privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos, divulgamos y protegemos su información cuando visita nuestro sitio web.",
+    privacyPolicyDataControllerTitle: 'Responsable del Tratamiento de Datos',
+    privacyPolicyDataControllerText: 'El responsable del tratamiento de sus datos personales es Aedificia Nobile. Datos de contacto:',
+    privacyPolicyDataControllerAddress: 'Dirección: San Pedro de Alcántara, Málaga, España',
+    privacyPolicyDataControllerEmail: 'Email: aedificianobile@yahoo.com',
+    privacyPolicyDataControllerPhone: 'Teléfono: +34610926670',
+    privacyPolicyDataCollectionTitle: 'Información que Recopilamos',
+    privacyPolicyDataCollectionText: 'Recopilamos la información que usted nos proporciona voluntariamente a través del formulario de contacto en nuestro sitio web. Estos datos personales incluyen: Nombre y Apellido, Dirección de correo electrónico, Número de teléfono, Dirección, Asunto y el contenido de su mensaje.',
+    privacyPolicyDataUsageTitle: 'Cómo Usamos Su Información',
+    privacyPolicyDataUsageText: 'Utilizamos la información recopilada a través de nuestro formulario de contacto únicamente para los siguientes fines:',
+    privacyPolicyDataUsagePoint1: 'Para responder a sus consultas y proporcionarle la información que ha solicitado.',
+    privacyPolicyDataUsagePoint2: 'Para preparar y enviar presupuestos de nuestros servicios.',
+    privacyPolicyDataUsagePoint3: 'Para comunicarnos con usted en relación con su proyecto o posible proyecto.',
+    privacyPolicyDataSharingTitle: 'Divulgación de Su Información',
+    privacyPolicyDataSharingText: 'No vendemos, intercambiamos ni transferimos de ningún otro modo su información de identificación personal a terceros. Sus datos se utilizan exclusivamente para la comunicación entre usted y Aedificia Nobile.',
+    privacyPolicyUserRightsTitle: 'Sus Derechos de Protección de Datos',
+    privacyPolicyUserRightsText: 'Usted tiene derecho a acceder, rectificar o suprimir sus datos personales, así como otros derechos reconocidos por la ley. Puede ejercer estos derechos enviando una solicitud por escrito a nuestra dirección de correo electrónico.',
+    privacyPolicyCookiesTitle: 'Política de Cookies',
+    privacyPolicyCookiesText: 'Nuestro sitio web utiliza cookies esenciales para mejorar su experiencia de navegación y garantizar las funcionalidades básicas del sitio. Una cookie es un pequeño archivo de texto que se almacena en su navegador. Al utilizar nuestro sitio web, usted acepta el uso de estas cookies.',
+    privacyPolicyContactTitle: 'Contacto',
+    privacyPolicyContactText: 'Si tiene alguna pregunta o comentario sobre esta Política de Privacidad, por favor contáctenos en:'
   }
 };
 

@@ -32,8 +32,8 @@ export const projects: Project[] = [
       id: 'playa-alicate', 
       titleKey: 'projectPlayaAlicate', 
       images: [
-        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FAlicate%20playa%2FAedificia%20Nobile%2038.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FAlicate%20playa%2FAedificia%20Nobile%2039.jpg?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FAlicate%20playa%2FAedificia%20Nobile%2038.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FAlicate%20playa%2FAedificia%20Nobile%2040.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FAlicate%20playa%2FAedificia%20Nobile%2041.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2FAlicate%20playa%2FAedificia%20Nobile%2042.jpg?alt=media',
@@ -46,6 +46,7 @@ export const projects: Project[] = [
       id: 'apartamento-morera', 
       titleKey: 'projectApartamentoMorera', 
       images: [
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%20111.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%2092.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%2093.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%2094.jpg?alt=media',
@@ -65,7 +66,6 @@ export const projects: Project[] = [
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%20108.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%20109.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%20110.jpg?alt=media',
-        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%20111.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%20112.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%20130.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fapartament%20morera%2FAedificia%20Nobile%20131.jpg?alt=media',

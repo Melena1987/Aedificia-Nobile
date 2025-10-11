@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { View } from '../App';
 
@@ -26,9 +26,6 @@ interface HeaderProps {
   isServicePage: boolean;
 }
 
-// FIX: Defined an interface for NavLink and applied it to the navLinks array to ensure
-// that `link.view` is correctly typed as `View` ('home' | 'projects') instead of
-// the wider `string` type, resolving the TypeScript error.
 interface NavLink {
   label: string;
   view: View;
@@ -38,9 +35,23 @@ interface NavLink {
 const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage }) => {
   const { t, language, setLanguage } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const lastScrollY = useRef(0);
   
   const handleScroll = () => {
-    setIsScrolled(window.scrollY > 50);
+    const currentScrollY = window.scrollY;
+    
+    // Logic for background color change
+    setIsScrolled(currentScrollY > 50);
+
+    // Logic for hiding/showing header
+    if (currentScrollY > lastScrollY.current && currentScrollY > 100) {
+      setIsHeaderVisible(false); // Scrolling down
+    } else {
+      setIsHeaderVisible(true); // Scrolling up
+    }
+    
+    lastScrollY.current = currentScrollY <= 0 ? 0 : currentScrollY;
   };
 
   useEffect(() => {
@@ -73,7 +84,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
   const isOpaque = isScrolled || !isTransparentInitially;
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${isOpaque ? 'bg-white shadow-md text-brand-dark' : 'bg-transparent text-white'}`}>
+    <header className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${isOpaque ? 'bg-white shadow-md text-brand-dark' : 'bg-transparent text-white'} ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
       <div className="w-full max-w-screen-2xl mx-auto flex justify-between items-center px-8 sm:px-12 lg:px-24">
         <a href="#home" onClick={(e) => handleNavClick(e, 'home', 'home')} className="flex-shrink-0">
           <img 

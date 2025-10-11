@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
     <section 
       id="home"
       className="h-screen bg-cover bg-center bg-fixed flex items-center justify-start text-white" 
-      style={{ backgroundImage: "url('https://picsum.photos/seed/modernhouse/1920/1080')" }}
+      style={{ backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2Fportada.jpg?alt=media')" }}
     >
       <div className="bg-black bg-opacity-40 absolute inset-0"></div>
       <div className="relative z-1 text-left max-w-2xl px-8 sm:px-16 lg:px-24">

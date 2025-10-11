@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -19,17 +19,44 @@ const App: React.FC = () => {
   const [currentView, setCurrentView] = useState<View>('home');
   const [selectedServiceId, setSelectedServiceId] = useState<string | null>(null);
 
-  const handleNavigate = (view: View, callback?: () => void) => {
-    const isAlreadyOnView = currentView === view && !selectedServiceId;
-    setCurrentView(view);
-    setSelectedServiceId(null);
-    
-    if (!isAlreadyOnView) {
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash;
+      if (hash === '#works') {
+        setCurrentView('projects');
+      } else {
+        setCurrentView('home');
+      }
+      setSelectedServiceId(null); // Close service page on view change
       window.scrollTo(0, 0);
+    };
+
+    window.addEventListener('hashchange', handleHashChange);
+    handleHashChange(); // Set initial view based on hash
+
+    return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  const handleNavigate = (view: View, callback?: () => void) => {
+    const targetHash = view === 'projects' ? '#works' : '#home';
+    const currentHash = window.location.hash || '#home';
+
+    // If we are navigating to a section on the current page, just scroll
+    if (currentHash === targetHash) {
+      if (callback) {
+        callback();
+      }
+      return;
     }
 
+    // If navigating to a different page, change the hash.
+    // The hashchange listener will handle the view update and scroll to top.
+    window.location.hash = targetHash;
+
+    // If there's a callback (for scrolling to a section), execute it after a delay
+    // to allow the new page component to render.
     if (callback) {
-      setTimeout(callback, isAlreadyOnView ? 0 : 100);
+      setTimeout(callback, 150);
     }
   };
 
@@ -40,9 +67,6 @@ const App: React.FC = () => {
   
   const handleGoBack = () => {
     setSelectedServiceId(null);
-    if (currentView !== 'home') {
-        setCurrentView('home');
-    }
     window.scrollTo(0, 0);
   };
 

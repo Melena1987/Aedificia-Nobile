@@ -86,7 +86,12 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
         <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
           <nav className="flex items-center space-x-4">
             {navLinks.map(link => (
-              <a key={link.label} href={`#${link.sectionId || ''}`} onClick={(e) => handleNavClick(e, link.view, link.sectionId)} className="font-semibold text-sm lg:text-base hover:text-brand-gold transition-colors whitespace-nowrap">
+              <a 
+                key={link.label} 
+                href={link.view === 'projects' ? '#works' : `#${link.sectionId || 'home'}`} 
+                onClick={(e) => handleNavClick(e, link.view, link.sectionId)} 
+                className="font-semibold text-sm lg:text-base hover:text-brand-gold transition-colors whitespace-nowrap"
+              >
                 {link.label}
               </a>
             ))}

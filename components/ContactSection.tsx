@@ -20,8 +20,11 @@ const ContactSection: React.FC = () => {
               </div>
             </div>
             <div className="mt-12 lg:mt-0"> {/* Logo Wrapper */}
-                <h3 className="font-logo text-5xl text-brand-gold">Aedificia Nobile</h3>
-                <p className="text-sm tracking-widest text-gray-400">Building & Design</p>
+              <img 
+                src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 
+                alt="Aedificia Nobile Logo"
+                className="h-16 brightness-0 invert"
+              />
             </div>
           </div>
           

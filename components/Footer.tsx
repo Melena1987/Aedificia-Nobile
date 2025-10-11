@@ -23,10 +23,11 @@ const Footer: React.FC = () => {
 
         {/* Right Item: Logo */}
         <div>
-           <div className="text-center">
-             <h4 className="font-logo text-4xl text-brand-gold">Aedificia Nobile</h4>
-             <p className="text-xs tracking-widest text-gray-600">Building & Design</p>
-           </div>
+          <img 
+            src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 
+            alt="Aedificia Nobile Logo"
+            className="h-14"
+          />
         </div>
         
       </div>

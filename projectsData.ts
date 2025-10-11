@@ -88,10 +88,16 @@ export const projects: Project[] = [
       id: 'bahia-marbella', 
       titleKey: 'projectBahiaMarbella', 
       images: [
-        'https://i.imgur.com/K073a4m.jpeg',
-        'https://i.imgur.com/eB3sS62.jpeg',
-        'https://i.imgur.com/iC5e3gT.jpeg',
-        'https://i.imgur.com/JQL1kYh.jpeg',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20Marbella%2FAedificia%20Nobile%204.JPG?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20Marbella%2FAedificia%20Nobile%205.JPG?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20Marbella%2FAedificia%20Nobile%206.JPG?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20Marbella%2FAedificia%20Nobile%209.JPG?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20Marbella%2FAedificia%20Nobile%2010.JPG?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20Marbella%2FAedificia%20Nobile%2011.JPG?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20Marbella%2FAedificia%20Nobile%2012.JPG?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20Marbella%2FAedificia%20Nobile%20140.JPG?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20Marbella%2FAedificia%20Nobile%20141.JPG?alt=media',
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20Marbella%2FAedificia%20Nobile%20142.JPG?alt=media',
       ] 
     },
     { 

@@ -149,7 +149,7 @@ const translations = {
     projectBahiaAlcantara: 'Bahía Alcántara',
     projectBahiaMarbella: 'Bahía Marbella',
     projectElHigueron: 'El Higuerón',
-    projectMarbellaCountryClub: 'Club de campo de Marbella',
+    projectMarbellaCountryClub: 'Marbella Country Club',
     projectPiedraBlanca: 'Piedra Blanca',
     projectPiscinaLaResina: 'Piscina La Resina',
     projectPuenteRomano: 'Puente Romano',

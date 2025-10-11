@@ -77,11 +77,11 @@ export const projects: Project[] = [
       id: 'bahia-alcantara', 
       titleKey: 'projectBahiaAlcantara', 
       images: [
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2060.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2056.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2057.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2058.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2059.jpg?alt=media',
-        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fbahia%20alcantara%2FAedificia%20Nobile%2060.jpg?alt=media',
       ] 
     },
     { 
@@ -118,6 +118,7 @@ export const projects: Project[] = [
       id: 'marbella-country-club', 
       titleKey: 'projectMarbellaCountryClub', 
       images: [
+        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fmarbella%20country%20club%2FAedificia%20Nobile%2071.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fmarbella%20country%20club%2FAedificia%20Nobile%202.JPG?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fmarbella%20country%20club%2FAedificia%20Nobile%203.JPG?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fmarbella%20country%20club%2FAedificia%20Nobile%2053.jpg?alt=media',
@@ -129,7 +130,6 @@ export const projects: Project[] = [
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fmarbella%20country%20club%2FAedificia%20Nobile%2068.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fmarbella%20country%20club%2FAedificia%20Nobile%2069.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fmarbella%20country%20club%2FAedificia%20Nobile%2070.jpg?alt=media',
-        'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fmarbella%20country%20club%2FAedificia%20Nobile%2071.jpg?alt=media',
         'https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/Trabajos%20terminados%2Fmarbella%20country%20club%2FAedificia%20Nobile%2072.jpg?alt=media',
       ] 
     },

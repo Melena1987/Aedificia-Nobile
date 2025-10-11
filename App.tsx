@@ -76,7 +76,11 @@ const App: React.FC = () => {
   return (
     <LanguageProvider>
       <div className="bg-brand-light text-brand-dark font-sans antialiased">
-        <Header onNavigate={handleNavigate} />
+        <Header 
+          onNavigate={handleNavigate} 
+          currentView={currentView} 
+          isServicePage={!!selectedServiceId} 
+        />
         <main>
           {renderContent()}
           <ScrollRevealSection>

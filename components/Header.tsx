@@ -20,6 +20,18 @@ const SpainFlag: React.FC = () => (
   </svg>
 );
 
+const MenuIcon: React.FC = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+  </svg>
+);
+
+const CloseIcon: React.FC = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+  </svg>
+);
+
 interface HeaderProps {
   onNavigate: (path: string, sectionId?: string) => void;
   currentView: View;
@@ -36,6 +48,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
   const { t, language, setLanguage } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const lastScrollY = useRef(0);
   
   const handleScroll = () => {
@@ -60,10 +73,22 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+  
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
 
   const handleNavClick = (e: React.MouseEvent, path: string, sectionId?: string) => {
     e.preventDefault();
     onNavigate(path, sectionId);
+    setIsMobileMenuOpen(false);
   };
 
   const navLinks: NavLink[] = [
@@ -78,41 +103,90 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
   const isOpaque = isScrolled || !isTransparentInitially;
 
   return (
-    <header className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${isOpaque ? 'bg-white shadow-md text-brand-dark' : 'bg-transparent text-white'} ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
-      <div className="w-full max-w-screen-2xl mx-auto flex justify-between items-center px-8 sm:px-12 lg:px-24">
-        <a href="/" onClick={(e) => handleNavClick(e, '/', 'home')} className="flex-shrink-0">
-          <img 
-            src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 
-            alt="Aedificia Nobile Logo" 
-            className={`h-20 lg:h-24 transition-all duration-300 ${!isOpaque ? 'brightness-0 invert' : ''}`}
-          />
-        </a>
-        
-        <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
-          <nav className="flex items-center space-x-4">
+    <>
+      <header className={`fixed top-0 left-0 w-full z-30 transition-all duration-300 ${isOpaque ? 'bg-white shadow-md text-brand-dark' : 'bg-transparent text-white'} ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+        <div className="w-full max-w-screen-2xl mx-auto flex justify-between items-center px-8 sm:px-12 lg:px-24">
+          <a href="/" onClick={(e) => handleNavClick(e, '/', 'home')} className="flex-shrink-0">
+            <img 
+              src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 
+              alt="Aedificia Nobile Logo" 
+              className={`h-20 lg:h-24 transition-all duration-300 ${!isOpaque ? 'brightness-0 invert' : ''}`}
+            />
+          </a>
+          
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-10">
+            <nav className="flex items-center space-x-4">
+              {navLinks.map(link => (
+                <a 
+                  key={link.label} 
+                  href={link.path} 
+                  onClick={(e) => handleNavClick(e, link.path, link.sectionId)} 
+                  className="font-semibold text-sm lg:text-base hover:text-brand-gold transition-colors whitespace-nowrap"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </nav>
+
+            <div className="flex items-center space-x-2">
+              <button onClick={() => setLanguage('en')} className={`p-1 rounded-md transition-all duration-200 ${language === 'en' ? 'bg-black/10' : 'bg-transparent'}`}>
+                <UKFlag />
+              </button>
+              <button onClick={() => setLanguage('es')} className={`p-1 rounded-md transition-all duration-200 ${language === 'es' ? 'bg-black/10' : 'bg-transparent'}`}>
+                <SpainFlag />
+              </button>
+            </div>
+          </div>
+          
+          <div className="md:hidden">
+            <button onClick={() => setIsMobileMenuOpen(true)} aria-label="Open menu" className="p-2">
+              <MenuIcon />
+            </button>
+          </div>
+
+        </div>
+      </header>
+      
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 bg-brand-dark/95 z-50 flex flex-col items-center justify-center animate-fade-in text-white">
+          <button 
+            onClick={() => setIsMobileMenuOpen(false)} 
+            className="absolute top-8 right-8 p-2"
+            aria-label="Close menu"
+          >
+            <CloseIcon />
+          </button>
+          
+          <nav className="flex flex-col items-center space-y-8 mb-12">
             {navLinks.map(link => (
               <a 
                 key={link.label} 
                 href={link.path} 
                 onClick={(e) => handleNavClick(e, link.path, link.sectionId)} 
-                className="font-semibold text-sm lg:text-base hover:text-brand-gold transition-colors whitespace-nowrap"
+                className="font-semibold text-2xl hover:text-brand-gold transition-colors"
               >
                 {link.label}
               </a>
             ))}
           </nav>
 
-          <div className="flex items-center space-x-2">
-            <button onClick={() => setLanguage('en')} className={`p-1 rounded-md transition-all duration-200 ${language === 'en' ? 'bg-black/10' : 'bg-transparent'}`}>
+          <div className="flex items-center space-x-4">
+            <button 
+              onClick={() => { setLanguage('en'); setIsMobileMenuOpen(false); }} 
+              className={`p-2 rounded-md transition-all duration-200 ${language === 'en' ? 'bg-white/20' : 'bg-transparent'}`}
+            >
               <UKFlag />
             </button>
-            <button onClick={() => setLanguage('es')} className={`p-1 rounded-md transition-all duration-200 ${language === 'es' ? 'bg-black/10' : 'bg-transparent'}`}>
+            <button 
+              onClick={() => { setLanguage('es'); setIsMobileMenuOpen(false); }} 
+              className={`p-2 rounded-md transition-all duration-200 ${language === 'es' ? 'bg-white/20' : 'bg-transparent'}`}
+            >
               <SpainFlag />
             </button>
           </div>
         </div>
-      </div>
-    </header>
+      )}
+    </>
   );
 };
 

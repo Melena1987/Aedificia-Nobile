@@ -21,6 +21,7 @@ const AdminPanel: React.FC = () => {
   const [password, setPassword] = useState('');
   const [submissions, setSubmissions] = useState<Submission[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
   const logoUrl = "https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media&token=7ecc00e6-28ed-4897-86b0-d29a96c0b141";
   const ADMIN_PASSWORD = 'AN-Admin1';
@@ -28,15 +29,26 @@ const AdminPanel: React.FC = () => {
   useEffect(() => {
     if (!isAuthenticated) return;
 
+    setLoading(true);
+    setError(null);
+
     const q = query(collection(db, 'submissions'), orderBy('createdAt', 'desc'));
-    const unsubscribe = onSnapshot(q, (snapshot) => {
-      const docs = snapshot.docs.map(doc => ({
-        id: doc.id,
-        ...doc.data()
-      })) as Submission[];
-      setSubmissions(docs);
-      setLoading(false);
-    });
+    
+    const unsubscribe = onSnapshot(q, 
+      (snapshot) => {
+        const docs = snapshot.docs.map(doc => ({
+          id: doc.id,
+          ...doc.data()
+        })) as Submission[];
+        setSubmissions(docs);
+        setLoading(false);
+      },
+      (err) => {
+        console.error("Firestore subscription error:", err);
+        setError("Error connecting to database. Please check configuration or rules.");
+        setLoading(false);
+      }
+    );
 
     return () => unsubscribe();
   }, [isAuthenticated]);
@@ -129,9 +141,15 @@ const AdminPanel: React.FC = () => {
              <div className="w-8 h-8 border-4 border-brand-gold border-t-transparent rounded-full animate-spin"></div>
              <p className="uppercase tracking-widest text-xs font-bold">Synchronizing...</p>
           </div>
+        ) : error ? (
+          <div className="text-center py-32 bg-white rounded-sm shadow-sm border border-red-100">
+            <p className="text-red-500 font-bold uppercase tracking-widest text-xs">{error}</p>
+          </div>
         ) : submissions.length === 0 ? (
-          <div className="text-center py-32 bg-white rounded-sm shadow-sm border border-gray-100">
-            <p className="text-gray-400 italic uppercase tracking-widest text-xs">No project submissions yet.</p>
+          <div className="flex items-center justify-center min-h-[40vh] bg-white rounded-sm shadow-sm border border-gray-100">
+            <p className="text-[#9ca3af] italic uppercase tracking-[0.25em] text-lg font-light">
+              No project submissions yet.
+            </p>
           </div>
         ) : (
           <div className="grid gap-8">

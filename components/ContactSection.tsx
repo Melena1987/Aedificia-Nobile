@@ -13,6 +13,17 @@ const ContactSection: React.FC = () => {
   
   const logoUrl = "https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media&token=7ecc00e6-28ed-4897-86b0-d29a96c0b141";
 
+  // Helper to get environment variables
+  const getEnvVar = (key: string) => {
+    if (typeof import.meta !== 'undefined' && (import.meta as any).env && (import.meta as any).env[key]) {
+      return (import.meta as any).env[key];
+    }
+    if (typeof process !== 'undefined' && process.env && process.env[key]) {
+      return process.env[key];
+    }
+    return '';
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -31,15 +42,27 @@ const ContactSection: React.FC = () => {
     };
 
     try {
+      // 1. Save to Firestore
+      console.log("Saving to Firestore...", data);
       await addDoc(collection(db, 'submissions'), data);
+      console.log("Successfully saved to Firestore");
 
+      // 2. Send Email notification
       if (form.current) {
-        await emailjs.sendForm(
-          process.env.VITE_EMAILJS_SERVICE_ID as string,
-          process.env.VITE_EMAILJS_TEMPLATE_ID as string,
-          form.current,
-          process.env.VITE_EMAILJS_PUBLIC_KEY as string
-        );
+        const serviceId = getEnvVar('VITE_EMAILJS_SERVICE_ID');
+        const templateId = getEnvVar('VITE_EMAILJS_TEMPLATE_ID');
+        const publicKey = getEnvVar('VITE_EMAILJS_PUBLIC_KEY');
+
+        if (serviceId && templateId && publicKey) {
+          try {
+            await emailjs.sendForm(serviceId, templateId, form.current, publicKey);
+            console.log("Email sent successfully");
+          } catch (emailErr) {
+            console.error("EmailJS error:", emailErr);
+            // We don't stop the success state just because email failed, 
+            // since data is already in Firestore.
+          }
+        }
       }
 
       setIsSuccess(true);
@@ -48,8 +71,8 @@ const ContactSection: React.FC = () => {
       }
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
-      console.error("Error sending message: ", error);
-      alert("Error al enviar el mensaje. Por favor, inténtelo de nuevo.");
+      console.error("Critical error in submission:", error);
+      alert("Error al enviar el mensaje. Por favor, compruebe su conexión e inténtelo de nuevo.");
     } finally {
       setIsSubmitting(false);
     }

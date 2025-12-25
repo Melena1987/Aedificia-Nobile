@@ -11,6 +11,11 @@ const firebaseConfig = {
   appId: process.env.PUBLIC_FIREBASE_APP_ID,
 };
 
+// Check if variables are missing (helpful for debugging)
+if (!firebaseConfig.apiKey) {
+  console.error("Firebase API Key is missing! Check your environment variables.");
+}
+
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 

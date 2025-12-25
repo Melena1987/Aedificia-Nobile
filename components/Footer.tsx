@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 
@@ -24,10 +25,20 @@ const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
           </a>
         </div>
 
-        {/* Middle Item: Info. Reordered to be first on mobile stack. */}
+        {/* Middle Item: Info & Admin Link */}
         <div className="text-sm text-gray-700 order-first md:order-none">
-          <a href="/privacy" onClick={(e) => handleNavClick(e, '/privacy')} className="hover:text-brand-gold">{t('privacyPolicy')}</a>
-          <p className="mt-2">&copy; 2025 Aedificia Nobile</p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a href="/privacy" onClick={(e) => handleNavClick(e, '/privacy')} className="hover:text-brand-gold transition-colors">{t('privacyPolicy')}</a>
+            <span className="hidden md:inline text-gray-400">|</span>
+            <a 
+              href="/admin" 
+              onClick={(e) => handleNavClick(e, '/admin')} 
+              className="text-gray-400 hover:text-brand-dark transition-colors text-xs self-center"
+            >
+              ADMIN
+            </a>
+          </div>
+          <p className="mt-2 text-xs opacity-60">&copy; 2025 Aedificia Nobile</p>
         </div>
 
         {/* Right Item: Logo */}

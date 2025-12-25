@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { LanguageProvider } from './contexts/LanguageContext';
 import Header from './components/Header';
@@ -14,8 +15,9 @@ import { services } from './servicesData';
 import ProjectsPage from './components/ProjectsPage';
 import PrivacyPolicyPage from './components/PrivacyPolicyPage';
 import CookieBanner from './components/CookieBanner';
+import AdminPanel from './components/AdminPanel';
 
-export type View = 'home' | 'projects' | 'privacy';
+export type View = 'home' | 'projects' | 'privacy' | 'admin';
 
 const App: React.FC = () => {
   const [currentPath, setCurrentPath] = useState(window.location.pathname);
@@ -67,8 +69,12 @@ const App: React.FC = () => {
   let currentView: View = 'home';
   if (currentPath === '/works') currentView = 'projects';
   else if (currentPath === '/privacy') currentView = 'privacy';
+  else if (currentPath === '/admin') currentView = 'admin';
 
   const renderContent = () => {
+    if (currentView === 'admin') {
+      return <AdminPanel />;
+    }
     if (selectedService) {
       return <ServicePage service={selectedService} onBack={handleGoBack} />;
     }
@@ -106,9 +112,11 @@ const App: React.FC = () => {
         />
         <main>
           {renderContent()}
-          <ScrollRevealSection>
-            <ContactSection />
-          </ScrollRevealSection>
+          {currentView !== 'admin' && (
+            <ScrollRevealSection>
+              <ContactSection />
+            </ScrollRevealSection>
+          )}
         </main>
         <Footer onNavigate={handleNavigate} />
         <CookieBanner />

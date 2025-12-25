@@ -40,24 +40,40 @@ const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="bg-brand-dark text-white py-20 lg:py-32">
-      <div className="container mx-auto px-4 sm:px-8 lg:px-16">
-        <div className="flex flex-col lg:flex-row gap-16">
+    <section id="contact" className="bg-brand-dark text-white py-24 lg:py-36 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-1/3 h-full bg-brand-gold/5 -skew-x-12 transform translate-x-1/2"></div>
+      
+      <div className="container mx-auto px-6 sm:px-12 lg:px-24 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-24">
           {/* Left Column */}
           <div className="lg:w-5/12 w-full flex flex-col justify-between">
             <div>
-              <h2 className="text-4xl font-bold text-brand-gold mb-6">{t('contactTitle')}</h2>
-              <p className="text-gray-400 mb-8">{t('contactSubtitle')}</p>
-              <div className="space-y-4 text-gray-300">
-                <p><span className="font-bold">{t('serviceAreas')}</span><br/>Costa del Sol - Málaga, España</p>
-                <p><span className="font-bold">Aedificia Nobile</span><br/>San Pedro de Alcántara<br/>aedificianobile@yahoo.com<br/>Teléfono: +34610926670</p>
+              <span className="text-brand-gold uppercase tracking-[0.4em] text-sm font-semibold mb-6 block">Get in touch</span>
+              <h2 className="text-5xl lg:text-6xl font-bold mb-8 leading-tight">{t('contactTitle')}</h2>
+              <p className="text-gray-400 text-lg mb-12 max-w-md leading-relaxed">{t('contactSubtitle')}</p>
+              
+              <div className="space-y-10 text-gray-300">
+                <div className="group">
+                  <p className="text-brand-gold uppercase tracking-widest text-xs font-bold mb-2 transition-colors group-hover:text-white">{t('serviceAreas')}</p>
+                  <p className="text-lg">Costa del Sol - Málaga, España</p>
+                </div>
+                
+                <div className="group">
+                  <p className="text-brand-gold uppercase tracking-widest text-xs font-bold mb-2 transition-colors group-hover:text-white">Aedificia Nobile</p>
+                  <p className="text-lg leading-loose">
+                    San Pedro de Alcántara<br/>
+                    <a href="mailto:aedificianobile@yahoo.com" className="hover:text-brand-gold transition-colors">aedificianobile@yahoo.com</a><br/>
+                    <a href="tel:+34610926670" className="hover:text-brand-gold transition-colors">+34 610 926 670</a>
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="mt-12 lg:mt-0">
+            
+            <div className="mt-20 lg:mt-0 opacity-20 hover:opacity-100 transition-opacity duration-700">
               <img 
                 src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 
                 alt="Aedificia Nobile Logo"
-                className="h-32 brightness-0 invert"
+                className="h-28 brightness-0 invert"
               />
             </div>
           </div>
@@ -65,38 +81,42 @@ const ContactSection: React.FC = () => {
           {/* Right Column */}
           <div className="lg:w-7/12 w-full">
             {isSuccess ? (
-              <div className="h-full flex items-center justify-center border border-brand-gold p-12 text-center animate-fade-in">
+              <div className="h-full flex items-center justify-center border border-brand-gold/30 bg-white/5 backdrop-blur-sm p-16 text-center animate-fade-in rounded-sm">
                 <div>
-                  <div className="text-brand-gold text-5xl mb-4">✓</div>
-                  <h3 className="text-2xl font-bold mb-2">¡Mensaje Enviado!</h3>
-                  <p className="text-gray-400">Nos pondremos en contacto contigo lo antes posible.</p>
+                  <div className="w-20 h-20 bg-brand-gold/20 rounded-full flex items-center justify-center mx-auto mb-8">
+                    <div className="text-brand-gold text-5xl">✓</div>
+                  </div>
+                  <h3 className="text-3xl font-bold mb-4">¡Mensaje Enviado!</h3>
+                  <p className="text-gray-400 text-lg">Nos pondremos en contacto contigo lo antes posible.</p>
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col justify-between h-full">
-                <div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
-                    <InputField label={t('formName')} name="name" type="text" required />
-                    <InputField label={t('formSurname')} name="surname" type="text" required />
-                    <InputField label={t('formEmail')} name="email" type="email" required />
-                    <InputField label={t('formPhone')} name="phone" type="tel" />
-                    <div className="sm:col-span-2">
-                      <InputField label={t('formAddress')} name="address" type="text" />
-                    </div>
-                    <div className="sm:col-span-2">
-                      <InputField label={t('formSubject')} name="subject" type="text" required />
-                    </div>
-                    <div className="sm:col-span-2">
-                      <InputField label={t('formMessage')} name="message" type="textarea" required />
-                    </div>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-12 bg-white/5 backdrop-blur-sm p-8 sm:p-12 rounded-sm border border-white/10">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
+                  <InputField label={t('formName')} name="name" type="text" required />
+                  <InputField label={t('formSurname')} name="surname" type="text" required />
+                  <InputField label={t('formEmail')} name="email" type="email" required />
+                  <InputField label={t('formPhone')} name="phone" type="tel" />
+                  <div className="sm:col-span-2">
+                    <InputField label={t('formAddress')} name="address" type="text" />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <InputField label={t('formSubject')} name="subject" type="text" required />
+                  </div>
+                  <div className="sm:col-span-2">
+                    <InputField label={t('formMessage')} name="message" type="textarea" required />
                   </div>
                 </div>
+                
                 <button 
                   type="submit" 
                   disabled={isSubmitting}
-                  className={`w-full mt-10 bg-white text-brand-dark font-bold py-4 px-8 hover:bg-gray-200 transition-colors duration-300 disabled:opacity-50 disabled:cursor-not-allowed`}
+                  className="relative group overflow-hidden w-full bg-brand-gold text-white font-bold py-5 px-8 transition-all hover:bg-white hover:text-brand-dark disabled:opacity-50"
                 >
-                  {isSubmitting ? 'Enviando...' : t('sendButton')}
+                  <span className="relative z-10 tracking-[0.2em] uppercase">
+                    {isSubmitting ? 'Enviando...' : t('sendButton')}
+                  </span>
+                  <div className="absolute inset-0 bg-white transform translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
                 </button>
               </form>
             )}
@@ -119,17 +139,20 @@ const InputField: React.FC<InputFieldProps> = ({ label, name, type, required }) 
     id: name,
     name: name,
     required: required,
-    className: "peer w-full bg-transparent border-0 border-b border-gray-500 text-white focus:ring-0 focus:border-brand-gold transition-colors py-2 outline-none",
+    className: "peer w-full bg-transparent border-0 border-b-2 border-white/20 text-white focus:ring-0 focus:border-brand-gold transition-all py-3 outline-none text-lg",
   };
   
   return (
     <div className="relative">
       {type === 'textarea' ? (
-        <textarea {...commonProps} rows={3} placeholder=" "></textarea>
+        <textarea {...commonProps} rows={4} placeholder=" "></textarea>
       ) : (
         <input {...commonProps} type={type} placeholder=" " />
       )}
-      <label htmlFor={name} className="absolute left-0 -top-3.5 text-gray-400 text-sm transition-all peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-placeholder-shown:top-2 peer-focus:-top-3.5 peer-focus:text-brand-gold peer-focus:text-sm">
+      <label 
+        htmlFor={name} 
+        className="absolute left-0 -top-6 text-brand-gold/60 text-xs font-bold uppercase tracking-widest transition-all peer-placeholder-shown:text-lg peer-placeholder-shown:text-gray-500 peer-placeholder-shown:top-3 peer-focus:-top-6 peer-focus:text-brand-gold peer-focus:text-xs"
+      >
         {label}
       </label>
     </div>

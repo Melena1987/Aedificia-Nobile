@@ -58,6 +58,9 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
     const currentScrollY = window.scrollY;
     setIsScrolled(currentScrollY > 50);
 
+    // If mobile menu is open, pause the auto-hide header logic
+    if (isMobileMenuOpen) return;
+
     if (currentScrollY > lastScrollY.current && currentScrollY > 400) {
       setIsHeaderVisible(false);
     } else {
@@ -70,7 +73,19 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
   useEffect(() => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [isMobileMenuOpen]);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
   
   const handleNavClick = (e: React.MouseEvent, path: string, sectionId?: string) => {
     e.preventDefault();
@@ -91,7 +106,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
 
   return (
     <>
-      <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 px-6 sm:px-12 lg:px-16 ${isOpaque ? 'bg-white/95 glass-header shadow-md text-brand-dark py-1' : 'bg-transparent text-white py-4'} ${isHeaderVisible ? 'translate-y-0' : '-translate-y-full'}`}>
+      <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 px-6 sm:px-12 lg:px-16 ${isOpaque ? 'bg-white/95 glass-header shadow-md text-brand-dark py-1' : 'bg-transparent text-white py-4'} ${isHeaderVisible || isMobileMenuOpen ? 'translate-y-0' : '-translate-y-full'}`}>
         <div className="w-full max-w-screen-2xl mx-auto flex justify-between items-center">
           <a href="/" onClick={(e) => handleNavClick(e, '/', 'home')} className="flex-shrink-0 transition-transform hover:scale-105 duration-300">
             <img 
@@ -147,12 +162,15 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
       </header>
       
       {isMobileMenuOpen && (
-        <div className="fixed inset-0 bg-brand-dark/98 z-50 flex flex-col items-center justify-center animate-fade-in text-white p-8">
-          <button onClick={() => setIsMobileMenuOpen(false)} className="absolute top-8 right-8 p-2 hover:rotate-90 transition-transform">
+        <div className="fixed inset-0 bg-brand-dark z-[100] flex flex-col items-center justify-center animate-fade-in text-white p-8">
+          <button 
+            onClick={() => setIsMobileMenuOpen(false)} 
+            className="absolute top-8 right-8 p-2 hover:rotate-90 transition-transform text-white z-[110]"
+          >
             <CloseIcon />
           </button>
           
-          <div className="mb-12">
+          <div className="mb-12 relative z-[110]">
              <img 
               src={logoUrl} 
               alt="Aedificia Nobile Logo" 
@@ -160,7 +178,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
             />
           </div>
 
-          <nav className="flex flex-col items-center space-y-8 mb-16">
+          <nav className="flex flex-col items-center space-y-8 mb-16 relative z-[110]">
             {navLinks.map((link, idx) => (
               <a 
                 key={link.label} 
@@ -174,7 +192,7 @@ const Header: React.FC<HeaderProps> = ({ onNavigate, currentView, isServicePage 
             ))}
           </nav>
           
-          <div className="flex items-center space-x-12">
+          <div className="flex items-center space-x-12 relative z-[110]">
             <button onClick={() => { setLanguage('en'); setIsMobileMenuOpen(false); }} className="flex flex-col items-center gap-3">
               <UKFlag /> <span className="text-[10px] tracking-widest uppercase opacity-60">English</span>
             </button>

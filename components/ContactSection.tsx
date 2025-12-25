@@ -1,11 +1,13 @@
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { db } from '../firebase';
 import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import emailjs from '@emailjs/browser';
 
 const ContactSection: React.FC = () => {
   const { t } = useLanguage();
+  const form = useRef<HTMLFormElement>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -27,9 +29,24 @@ const ContactSection: React.FC = () => {
     };
 
     try {
+      // Guardar en Firebase
       await addDoc(collection(db, 'submissions'), data);
+
+      // Enviar email con EmailJS
+      if (form.current) {
+        // Fix: Use process.env for environment variables to comply with environment standards
+        await emailjs.sendForm(
+          process.env.VITE_EMAILJS_SERVICE_ID as string,
+          process.env.VITE_EMAILJS_TEMPLATE_ID as string,
+          form.current,
+          process.env.VITE_EMAILJS_PUBLIC_KEY as string
+        );
+      }
+
       setIsSuccess(true);
-      (e.target as HTMLFormElement).reset();
+      if (form.current) {
+        form.current.reset();
+      }
       setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       console.error("Error sending message: ", error);
@@ -71,7 +88,7 @@ const ContactSection: React.FC = () => {
             
             <div className="mt-20 lg:mt-0 opacity-20 hover:opacity-100 transition-opacity duration-700">
               <img 
-                src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 
+                src="https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o%2Frecursos%20web%2FAedificia%20Nobile%20logo.png?alt=media" 
                 alt="Aedificia Nobile Logo"
                 className="h-28 brightness-0 invert"
               />
@@ -91,7 +108,11 @@ const ContactSection: React.FC = () => {
                 </div>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-12 bg-white/5 backdrop-blur-sm p-8 sm:p-12 rounded-sm border border-white/10">
+              <form 
+                ref={form}
+                onSubmit={handleSubmit} 
+                className="flex flex-col gap-12 bg-white/5 backdrop-blur-sm p-8 sm:p-12 rounded-sm border border-white/10"
+              >
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-12">
                   <InputField label={t('formName')} name="name" type="text" required />
                   <InputField label={t('formSurname')} name="surname" type="text" required />

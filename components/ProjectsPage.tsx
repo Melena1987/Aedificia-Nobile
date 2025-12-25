@@ -1,28 +1,15 @@
-import React, { useState } from 'react';
+
+import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import ScrollRevealSection from './ScrollRevealSection';
 import { projects } from '../projectsData';
-import ProjectDetailPage from './ProjectDetailPage';
 
-const ProjectsPage: React.FC = () => {
+interface ProjectsPageProps {
+  onProjectSelect: (id: string) => void;
+}
+
+const ProjectsPage: React.FC<ProjectsPageProps> = ({ onProjectSelect }) => {
   const { t } = useLanguage();
-  const [selectedProjectId, setSelectedProjectId] = useState<string | null>(null);
-
-  const handleSelectProject = (projectId: string) => {
-    setSelectedProjectId(projectId);
-    window.scrollTo(0, 0);
-  };
-
-  const handleGoBack = () => {
-    setSelectedProjectId(null);
-    window.scrollTo(0, 0);
-  };
-
-  const selectedProject = projects.find(p => p.id === selectedProjectId);
-
-  if (selectedProject) {
-    return <ProjectDetailPage project={selectedProject} onBack={handleGoBack} />;
-  }
 
   return (
     <div className="animate-fade-in bg-brand-light">
@@ -44,10 +31,10 @@ const ProjectsPage: React.FC = () => {
               >
                 <div 
                   className="relative group overflow-hidden cursor-pointer shadow-lg rounded-lg"
-                  onClick={() => handleSelectProject(project.id)}
+                  onClick={() => onProjectSelect(project.id)}
                   role="button"
                   tabIndex={0}
-                  onKeyPress={(e) => e.key === 'Enter' && handleSelectProject(project.id)}
+                  onKeyPress={(e) => e.key === 'Enter' && onProjectSelect(project.id)}
                   aria-label={`View project ${t(project.titleKey)}`}
                 >
                   <img 

@@ -1,9 +1,19 @@
+
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import ScrollRevealSection from './ScrollRevealSection';
 
-const TransformSection: React.FC = () => {
+interface TransformSectionProps {
+  onNavigate: (path: string, sectionId?: string) => void;
+}
+
+const TransformSection: React.FC<TransformSectionProps> = ({ onNavigate }) => {
   const { t } = useLanguage();
+
+  const handleServicesClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    onNavigate('/', 'services');
+  };
 
   return (
     <section className="bg-brand-light py-16 lg:py-24 relative z-10 overflow-x-hidden">
@@ -13,7 +23,7 @@ const TransformSection: React.FC = () => {
           <div
             className="w-full h-96 md:h-[500px] bg-cover bg-center bg-fixed rounded-lg shadow-2xl"
             style={{
-              backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2Fsegunda%20franja.jpg?alt=media')"
+              backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o%2Frecursos%20web%2Fsegunda%20franja.jpg?alt=media')"
             }}
             role="img"
             aria-label="Bright, modern kitchen with white cabinets and a dark island"
@@ -29,6 +39,7 @@ const TransformSection: React.FC = () => {
           </p>
           <a 
             href="#services" 
+            onClick={handleServicesClick}
             className="inline-block bg-brand-dark text-white font-semibold py-3 px-8 hover:bg-gray-800 transition-colors duration-300 rounded"
             aria-label="View our services"
           >

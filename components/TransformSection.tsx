@@ -23,7 +23,7 @@ const TransformSection: React.FC<TransformSectionProps> = ({ onNavigate }) => {
           <div
             className="w-full h-96 md:h-[500px] bg-cover bg-center bg-fixed rounded-lg shadow-2xl"
             style={{
-              backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o%2Frecursos%20web%2Fsegunda%20franja.jpg?alt=media')"
+              backgroundImage: "url('https://firebasestorage.googleapis.com/v0/b/aedificia-nobile.firebasestorage.app/o/recursos%20web%2Fsegunda%20franja.jpg?alt=media')"
             }}
             role="img"
             aria-label="Bright, modern kitchen with white cabinets and a dark island"
